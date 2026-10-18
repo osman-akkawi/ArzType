@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>ArzType</AssemblyName>
+    <RootNamespace>ArzType.App</RootNamespace>
+    <ApplicationIcon>arztype.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Version>0.2.1</Version>
+    <Product>ArzType</Product>
+    <Description>Fixes text typed with the wrong keyboard layout, offline, in 70+ languages.</Description>
+    <Copyright>MIT License</Copyright>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <TieredPGO>true</TieredPGO>
+    <!-- No WinForms designer is used; custom controls are built in code. -->
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ArzType.Core/ArzType.Core.csproj" />
+    <!-- Language packs are embedded so ArzType.exe is a single file. -->
+    <EmbeddedResource Include="../../language-packs/*.lpk" LogicalName="packs/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
